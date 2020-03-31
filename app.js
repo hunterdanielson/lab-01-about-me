@@ -2,6 +2,8 @@ import isYes from './isYes.js';
 
 const myButton = document.getElementById('myButton');
 const result = document.getElementById('result');
+const resultPercent = document.getElementById('result-percent');
+const resultPic = document.getElementById('result-pic');
 
 
 // hey there, you awake?
@@ -41,19 +43,56 @@ function launchQuiz() {
         numYes++;
     }
 
+    
+
     let response = 'Ok ' + name + ', the results of the quiz are in... the Pokemon you would be is: ';
 
     if (numYes === 3) {
         response += 'Charmander!';
+        result.style.color = '#E15554';
+        resultPercent.style.color = '#E15554';
+        const img = document.createElement('img'); 
+        img.src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png'; 
+        document.getElementById('result-pic').appendChild(img);
+
     } else if (numYes === 2) {
         response += 'Squirtle!';
+        result.style.color = '#4D9DE0';
+        resultPercent.style.color = '#4D9DE0';
+        const img = document.createElement('img'); 
+        img.src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png'; 
+        document.getElementById('result-pic').appendChild(img);
+
     } else if (numYes === 1) {
         response += 'Pikachu!';
+        result.style.color = '#E1BC29';
+        resultPercent.style.color = '#E1BC29';
+        const img = document.createElement('img'); 
+        img.src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png'; 
+        document.getElementById('result-pic').appendChild(img);
+
     } else {
         response += 'Bulbasaur!';
+        result.style.color = '#3BB273';
+        resultPercent.style.color = '#3BB273';
+        const img = document.createElement('img'); 
+        img.src = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'; 
+        document.getElementById('result-pic').appendChild(img);
+
     }
 
     result.textContent = response;
+
+    
+
+
+    let responsePercent = numYes / 3 * 100;
+    responsePercent = Math.trunc(responsePercent);
+    
+    resultPercent.textContent = 'You answered: ' + responsePercent + '% Yes.';
+
+    alert('The quiz is now complete. See results at the bottom of the page!');
+    
 }
 
 
