@@ -1,9 +1,9 @@
 import isYes from './isYes.js';
 
+// getting from the DOM
 const myButton = document.getElementById('myButton');
 const result = document.getElementById('result');
 const resultPercent = document.getElementById('result-percent');
-
 
 function launchQuiz() {
     let numYes = 0;
