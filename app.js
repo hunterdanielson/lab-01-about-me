@@ -3,12 +3,7 @@ import isYes from './isYes.js';
 const myButton = document.getElementById('myButton');
 const result = document.getElementById('result');
 const resultPercent = document.getElementById('result-percent');
-const resultPic = document.getElementById('result-pic');
 
-
-// hey there, you awake?
-// wanna take a quiz?
-// ok questions:
 
 function launchQuiz() {
     let numYes = 0;
@@ -42,8 +37,6 @@ function launchQuiz() {
     if (isYes(questoin3) === true) {
         numYes++;
     }
-
-    
 
     let response = 'Ok ' + name + ', the results of the quiz are in... the Pokemon you would be is: ';
 
@@ -83,20 +76,12 @@ function launchQuiz() {
 
     result.textContent = response;
 
-    
-
-
     let responsePercent = numYes / 3 * 100;
     responsePercent = Math.trunc(responsePercent);
     
     resultPercent.textContent = 'You answered: ' + responsePercent + '% Yes.';
 
     alert('The quiz is now complete. See results at the bottom of the page!');
-    
 }
 
-
 myButton.addEventListener('click', launchQuiz);
-
-
-
